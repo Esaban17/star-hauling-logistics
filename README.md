@@ -11,7 +11,7 @@ Static website for Star Hauling Logistics (Industrial design, white navbar).
 This is a test deploy on GitHub Pages. It has `noindex` so search engines skip it.
 Placeholders to replace with real client data before going live:
 
-- Phone `(555) 012-4870` and email `dispatch@starhauling.com`
+- Phone `(555) 012-4870`
 - USDOT / MC numbers (`0000000` / `000000`)
 - Stats (48 states, 98% on-time, 12+ years)
 - Quote form: does not send yet (needs a form service such as Formspree, or a backend)
