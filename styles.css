@@ -141,4 +141,9 @@ textarea { min-height: 110px; resize: vertical; }
 .site-footer { border-top: 1px solid var(--line); padding-block: 32px; color: var(--dim); font-size: 14px; }
 .site-footer .container { display: flex; flex-wrap: wrap; gap: 18px 32px; justify-content: space-between; align-items: center; }
 .site-footer img { width: 130px; height: auto; }
+.footer-phone { color: var(--white); font-weight: 700; letter-spacing: .04em; }
+.footer-phone:hover { color: var(--red); }
+.social { display: flex; gap: 10px; }
+.social a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid var(--line); color: var(--silver); transition: background .15s, border-color .15s, color .15s; }
+.social a:hover { background: var(--red); border-color: var(--red); color: var(--white); }
 .test-banner { background: var(--yellow); color: var(--graph); text-align: center; font-size: 13px; font-weight: 600; padding: 6px 16px; }
