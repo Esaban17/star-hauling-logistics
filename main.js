@@ -18,7 +18,7 @@ links.addEventListener('click', (e) => {
 // Quote form (test version: validates only, no sending yet)
 const form = document.getElementById('quote-form');
 const status = document.getElementById('form-status');
-form.addEventListener('submit', (e) => {
+if (form) form.addEventListener('submit', (e) => {
   e.preventDefault();
   if (!form.checkValidity()) {
     form.reportValidity();
