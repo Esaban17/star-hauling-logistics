@@ -145,7 +145,8 @@
           <div class="contact-item"><span>Email</span><a href="mailto:info@starhaulinglogistics.com">info@starhaulinglogistics.com</a></div>
           <div class="contact-item"><span>Hours</span><p>24 hours · 7 days a week</p></div>
         </div>
-        <form id="quote-form" novalidate>
+        <form id="quote-form" action="https://formsubmit.co/ajax/info@starhaulinglogistics.com" method="POST" novalidate>
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="two">
             <label for="f-name">Name<input id="f-name" name="name" autocomplete="name" required></label>
             <label for="f-company">Company<input id="f-company" name="company" autocomplete="organization"></label>
@@ -168,7 +169,7 @@
             <span>I agree to receive SMS text messages from Star Hauling Logistics LLC at the phone number provided about my quote, shipment updates and dispatch notifications. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of service. See our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">SMS Terms &amp; Conditions</a>.</span>
           </label>
           <button class="btn btn-red" type="submit">Send request</button>
-          <p class="form-note" id="form-status" role="status">Test version: this form does not send yet.</p>
+          <p class="form-note" id="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>

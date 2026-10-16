@@ -15,18 +15,45 @@ links.addEventListener('click', (e) => {
   }
 });
 
-// Quote form (test version: validates only, no sending yet)
+// Quote form: sends each request to info@ via FormSubmit
 const form = document.getElementById('quote-form');
 const status = document.getElementById('form-status');
-if (form) form.addEventListener('submit', (e) => {
+const submitBtn = form && form.querySelector('button[type="submit"]');
+if (form) form.addEventListener('submit', async (e) => {
   e.preventDefault();
   if (!form.checkValidity()) {
     form.reportValidity();
     return;
   }
-  status.textContent = 'Thanks! In the live version this request goes straight to dispatch.';
-  status.classList.add('form-ok');
-  form.reset();
+  const data = Object.fromEntries(new FormData(form));
+  if (data._honey) return;
+  data.sms_consent = form.elements.sms_consent?.checked ? 'Yes, agreed to receive SMS' : 'No';
+  data._subject = `Quote request: ${data.pickup} to ${data.delivery} (${data.name})`;
+  data._template = 'table';
+  data._replyto = data.email;
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+  status.textContent = '';
+  status.classList.remove('form-ok', 'form-error');
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(data),
+    });
+    const json = await res.json().catch(() => ({}));
+    if (!res.ok || String(json.success) !== 'true') throw new Error(json.message || 'Send failed');
+    status.textContent = 'Thanks! Your request was sent. Our dispatch team will contact you shortly.';
+    status.classList.add('form-ok');
+    form.reset();
+  } catch (err) {
+    status.textContent = 'Sorry, we could not send your request. Please call (346) 646-3515 or email info@starhaulinglogistics.com.';
+    status.classList.add('form-error');
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send request';
+  }
 });
 
 document.getElementById('year').textContent = new Date().getFullYear();
