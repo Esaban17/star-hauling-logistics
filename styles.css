@@ -171,3 +171,24 @@ textarea { min-height: 110px; resize: vertical; }
 .legal strong { color: var(--white); }
 .legal .callout { margin-top: 18px; padding: 18px 20px; background: var(--steel); border-left: 4px solid var(--red); }
 .legal .callout p:first-child { margin-top: 0; }
+
+/* Loads we move */
+.loads { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.load { --cut: 18px; position: relative; display: grid; gap: 8px; align-content: start; padding: 28px 22px 30px; background: var(--graph); clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%); transition: background .15s, transform .15s; }
+.load::after { content: ""; position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background: var(--red); transition: width .2s; }
+.load:hover { background: #0F1217; }
+.load:hover::after { width: calc(100% - var(--cut)); }
+.load svg { width: 44px; height: 44px; color: var(--red); margin-bottom: 6px; }
+.load h3 { font-size: 17px; font-weight: 800; text-transform: uppercase; line-height: 1.15; }
+.load p { color: var(--dim); font-size: 14px; line-height: 1.5; }
+.load-more { background: var(--red); }
+.load-more:hover { background: var(--red-dark); }
+.load-more svg { color: var(--white); }
+.load-more p { color: #FFE3E7; }
+.load-more::after { display: none; }
+.equip { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; }
+.equip h3 { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); }
+.equip ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.equip li { font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--silver); border: 1px solid var(--line); padding: 7px 12px; }
+@media (max-width: 1000px) { .loads { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 680px) { .loads { grid-template-columns: 1fr 1fr; gap: 10px; } .load { padding: 22px 16px 24px; } .load svg { width: 38px; height: 38px; } .load h3 { font-size: 15px; } }

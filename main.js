@@ -56,3 +56,11 @@ if (form) form.addEventListener('submit', async (e) => {
 });
 
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// Load tiles: preselect the load type in the quote form
+document.querySelectorAll('.load[data-load]').forEach((tile) => {
+  tile.addEventListener('click', () => {
+    const select = document.getElementById('f-service');
+    if (select) select.value = tile.dataset.load;
+  });
+});
