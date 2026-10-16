@@ -26,7 +26,6 @@ if (form) form.addEventListener('submit', async (e) => {
     return;
   }
   const data = Object.fromEntries(new FormData(form));
-  if (data._honey) return;
   data.sms_consent = form.elements.sms_consent?.checked ? 'Yes, agreed to receive SMS' : 'No';
   data._subject = `Quote request: ${data.pickup} to ${data.delivery} (${data.name})`;
   data._template = 'table';

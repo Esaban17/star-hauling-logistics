@@ -135,7 +135,6 @@ textarea { min-height: 110px; resize: vertical; }
 .form-note { font-size: 14px; color: var(--dim); }
 .form-ok { font-weight: 600; color: #6EE7A8; }
 .form-error { font-weight: 600; color: #FCA5A5; }
-.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 #quote-form button:disabled { opacity: .7; cursor: wait; }
 @media (max-width: 860px) { .contact { grid-template-columns: 1fr; } }
 @media (max-width: 520px) { .two { grid-template-columns: 1fr; } }
